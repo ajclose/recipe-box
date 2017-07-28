@@ -1,0 +1,9 @@
+<h1>RECIPE</h1>
+
+<%= link_to "Recipes", root_path %>
+<%= link_to "Edit", edit_recipe_path %>
+<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: 'Are you sure you want to delete this recipe?'} %>
+
+<h3><%= @recipe.title %></h3>
+<h4><%= @recipe.cook_time %> minutes</h4>
+<p><%= @recipe.description %></p>
