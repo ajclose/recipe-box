@@ -1,0 +1,15 @@
+<%= form_for @step do |f| %>
+
+<div class="">
+  <%= f.label :order %>
+  <%= f.number_field :order %>
+</div>
+
+<div class="">
+  <%= f.label :directions %>
+  <%= f.text_area :directions %>
+</div>
+
+<%= f.submit %>
+
+<% end %>

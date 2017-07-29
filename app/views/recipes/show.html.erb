@@ -9,6 +9,14 @@
   <p><%= @recipe.description %></p>
 </div>
 
+<ul>
+  <% @recipe.data.each do |data| %>
+
+  <li><%= data.quantity %> <%= data.unit %> <%= data.ingredient.name %></li>
+
+  <% end %>
+</ul>
+
 <ol>
   <% @recipe.steps.each do |step| %>
   <li><%= step.directions %></li>
