@@ -1,6 +1,9 @@
-<h1>HELLO</h1>
 
-<%= link_to "Add Recipe", new_recipe_path %>
 <% @recipes.each do |recipe| %>
-<h3><%= link_to recipe.title, recipe_path(recipe) %></h3>
+<div class="recipe-display">
+  <h3><%= link_to recipe.title, recipe_path(recipe) %></h3>
+  <h4><%= recipe.cook_time %> min</h4>
+  <h5><%= recipe.description %></h5>
+</div>
+
 <% end %>
