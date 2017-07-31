@@ -26,6 +26,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find_by id: params[:id]
+    @step = Step.new
   end
 
   def update

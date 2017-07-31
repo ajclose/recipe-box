@@ -1,7 +1,6 @@
 class Recipe < ApplicationRecord
-  has_many :steps
-  has_many :data
-  has_many :ingredients, through: :data
+  has_many :steps, dependent: :destroy
+  has_many :ingredients
   validates :title, presence: true
   validates :description, presence: true
   validates :cook_time, presence: true
