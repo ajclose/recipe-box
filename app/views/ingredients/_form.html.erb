@@ -1,0 +1,20 @@
+<%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
+
+<div class="form_group">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="form_group">
+  <%= f.label :quantity %>
+  <%= f.text_field :quantity %>
+</div>
+
+<div class="form_group">
+  <%= f.label :unit %>
+  <%= f.text_field :unit %>
+</div>
+
+<%= f.submit %>
+
+<% end %>

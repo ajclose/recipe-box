@@ -1,3 +1,10 @@
 
 
 <%= render partial: 'form' %>
+
+<%= render partial: 'steps/form' %>
+
+<%= render partial: 'ingredients/form' %>
+
+<%= link_to "Edit", edit_recipe_step_path(@recipe) %>
+<%= link_to "Delete", [step.recipe, step], method: :delete, data: { confirm: "Are you sure you want to delete this step?"} %>

@@ -1,35 +1,33 @@
 
 
-<%= link_to "Edit", edit_recipe_path %>
-<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: 'Are you sure you want to delete this recipe?'} %>
 
 
-<div class="recipe">
-  <h3><%= @recipe.title %></h3>
-  <h4><%= @recipe.cook_time %> minutes</h4>
-  <p><%= @recipe.description %></p>
+
+<div class="recipe page-header">
+  <div class="recipe-description">
+    <h3><%= @recipe.title %></h3>
+    <h4><%= @recipe.cook_time %> minutes</h4>
+    <p class="lead"><%= @recipe.description %></p>
+    <%= link_to "Edit", edit_recipe_path %>
+    <%= link_to "Delete", recipe_path, method: :delete, data: {confirm: 'Are you sure you want to delete this recipe?'} %>
+  </div>
+  <ul class="ingredients">
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.quantity %>
+      <% if ingredient.unit == nil %>
+      <%= ingredient.name.pluralize(ingredient.quantity.to_i) %>
+      <% else %>
+      <%= ingredient.unit %> <%= ingredient.name %></li>
+      <% end %>
+  <% end %>
+  </ul>
 </div>
-<h3>Add ingredient</h3>
-
-<ul>
-<% @recipe.ingredients.each do |ingredient| %>
-  <li><%= ingredient.quantity %>
-    <% if ingredient.unit == nil %>
-    <%= ingredient.name.pluralize(ingredient.quantity.to_i) %>
-    <% else %>
-    <%= ingredient.unit %> <%= ingredient.name %></li>
-    <% end %>
-<% end %>
-</ul>
 
 
-<ol>
+
+<ol class="steps">
   <% @recipe.steps.order(:order).each do |step| %>
   <li><%= step.directions %></li>
-  <%= link_to "Edit", edit_recipe_step_path(@recipe) %>
-  <%= link_to "Delete", [step.recipe, step], method: :delete, data: { confirm: "Are you sure you want to delete this step?"} %>
+
   <% end %>
 </ol>
-
-<h3>Add Step</h3>
-<%= render 'steps/form' %>
