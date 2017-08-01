@@ -5,7 +5,7 @@ class StepsController < ApplicationController
     @step.order = params[:step][:order]
     @step.directions = params[:step][:directions]
     if @step.save
-      redirect_to recipe_path(@recipe)
+      redirect_to edit_recipe_path(@recipe)
     else
       render 'recipes/show'
     end
@@ -20,6 +20,15 @@ class StepsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @step = @recipe.steps.find(params[:id])
     @step.destroy
-    redirect_to recipe_path(@recipe)
+    redirect_to edit_recipe_path(@recipe)
+  end
+
+  def update
+    @recipe = Recipe.find(params[:recipe_id])
+    @step = @recipe.steps.find(params[:id])
+    @step.order = params[:step][:order]
+    @step.directions = params[:step][:directions]
+    @step.save
+    redirect_to edit_recipe_path(@recipe)
   end
 end

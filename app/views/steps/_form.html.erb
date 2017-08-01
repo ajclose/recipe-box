@@ -1,13 +1,13 @@
-<%= form_for ([@recipe, @recipe.steps.build]) do |f| %>
+<%= form_for ([@recipe, @step]), html: {class: "form-inline"} do |f| %>
 
-<div class="">
+<div class="form-group">
   <%= f.label :order %>
   <%= f.number_field :order %>
 </div>
 
-<div class="">
+<div class="form-group">
   <%= f.label :directions %>
-  <%= f.text_area :directions %>
+  <%= f.text_area :directions, class: "form-control"%>
 </div>
 
 <%= f.submit %>

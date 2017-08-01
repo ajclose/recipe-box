@@ -24,6 +24,10 @@
 }
 
 body {
+  background-color: #3498db;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,12 +37,30 @@ body {
 
 header {
   text-align: center;
-}
-
-header h3 {
-  font-style: italic;
+  h1 {
+    a {
+      color: #c0392b;
+    }
+  }
+  h3 {
+    font-style: italic;
+    color: #f39c12;
+  }
 }
 
 a {
   text-decoration: none;
+  color: #bdc3c7;
+}
+
+.edit-ingredients {
+  display: flex;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  .control-label {
+    margin-right: 10px;
+  }
 }
