@@ -4,11 +4,8 @@ class StepsController < ApplicationController
     @step = @recipe.steps.new
     @step.order = params[:step][:order]
     @step.directions = params[:step][:directions]
-    if @step.save
-      redirect_to edit_recipe_path(@recipe)
-    else
-      render 'recipes/show'
-    end
+    @step.save
+    redirect_to edit_recipe_path(@recipe)
   end
 
   def edit

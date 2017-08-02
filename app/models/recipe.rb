@@ -3,5 +3,5 @@ class Recipe < ApplicationRecord
   has_many :ingredients
   validates :title, presence: true
   validates :description, presence: true
-  validates :cook_time, presence: true
+  validates :cook_time, presence: true, numericality: true
 end

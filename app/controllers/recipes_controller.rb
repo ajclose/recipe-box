@@ -38,6 +38,8 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipe_path
     else
+      @step = Step.new
+      @ingredient = Ingredient.new
       render :edit
     end
   end
