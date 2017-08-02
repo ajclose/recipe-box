@@ -10,7 +10,7 @@
       <% else %>
       <%= ingredient.unit %> <%= ingredient.name %>
       <% end %>
-      <%= link_to "Edit", edit_recipe_ingredient_path(@recipe) %>
+      <%= link_to "Edit", edit_recipe_ingredient_path(ingredient.recipe, ingredient) %>
       <%= link_to "Delete", [ingredient.recipe, ingredient], method: :delete, data: { confirm: "Are you sure you want to delete this ingredient?"} %>
       </li>
   <% end %>
@@ -23,7 +23,7 @@
 <ol class="steps">
   <% @recipe.steps.order(:order).each do |step| %>
   <li><%= step.directions %>
-    <%= link_to "Edit", edit_recipe_step_path(@recipe) %>
+    <%= link_to "Edit", edit_recipe_step_path(step.recipe, step) %>
     <%= link_to "Delete", [step.recipe, step], method: :delete, data: { confirm: "Are you sure you want to delete this step?"} %>
   </li>
   <% end %>
